@@ -13,6 +13,99 @@ import {
   Maximize2,
 } from "lucide-react";
 import { nav, photos, services, whatsapp } from "@/lib/data";
+const heroSlides = [
+  {
+    image: "fireplace-angle",
+    label: "OUTDOOR LIVING",
+    title: "Stone-clad fireplace & patio",
+    position: "70% 55%",
+  },
+  {
+    image: "patio-wide",
+    label: "SPACE & PROPORTION",
+    title: "Patio floors & architectural detail",
+    position: "center 55%",
+  },
+  {
+    image: "hallway-front",
+    label: "INTERIOR FINISHES",
+    title: "Marble-effect walls & floors",
+    position: "65% 50%",
+  },
+  {
+    image: "curved-steps",
+    label: "THE FIRST IMPRESSION",
+    title: "Curved residential entrance",
+    position: "center 60%",
+  },
+];
+export function HeroBackground() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (paused || reduced) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden)
+        setActive((value) => (value + 1) % heroSlides.length);
+    }, 4000);
+    return () => window.clearInterval(timer);
+  }, [paused, reduced]);
+  const slide = heroSlides[active];
+  return (
+    <>
+      <div
+        className="hero-image hero-slideshow"
+        data-parallax
+        data-active-slide={active}
+        aria-hidden="true"
+      >
+        {heroSlides.map((item, i) => (
+          <div
+            key={item.image}
+            className={`hero-slide ${active === i ? "slide-active" : ""}`}
+          >
+            <Image
+              src={`/images/${item.image}.webp`}
+              alt=""
+              fill
+              priority={i === 0}
+              loading={i === 0 ? undefined : "eager"}
+              sizes="100vw"
+              style={{ objectPosition: item.position }}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="hero-project">
+        <span className="hero-slide-number">
+          0{active + 1} / {slide.label}
+        </span>
+        <br />
+        <span>{slide.title}</span>
+      </div>
+      {!reduced && (
+        <button
+          className="hero-playback"
+          aria-label={
+            paused ? "Play background slideshow" : "Pause background slideshow"
+          }
+          onClick={() => setPaused((value) => !value)}
+        >
+          <span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span>
+          <span>{paused ? "Play" : "Pause"}</span>
+        </button>
+      )}
+    </>
+  );
+}
 export function Arrow() {
   return <ArrowUpRight size={18} aria-hidden="true" />;
 }

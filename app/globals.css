@@ -2045,3 +2045,194 @@ footer {
     transform: none !important;
   }
 }
+
+/* Soft architectural edges and restrained glass surfaces. */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.85s var(--ease);
+}
+.hero-slide.slide-active {
+  opacity: 1;
+}
+.navbar {
+  background: rgba(31, 31, 31, 0.24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.navbar.nav-solid {
+  background: rgba(31, 31, 31, 0.83);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.nav-quote,
+.hero-actions .text-link {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+  border-radius: 12px;
+}
+.hero-actions .text-link {
+  padding: 14px 19px;
+}
+.hero-project {
+  z-index: 3;
+  padding: 16px 22px;
+  background: rgba(31, 31, 31, 0.34);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+}
+.hero-project .hero-slide-number {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+.hero-playback {
+  position: absolute;
+  right: 4%;
+  bottom: 92px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background: rgba(31, 31, 31, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  color: var(--paper);
+  font-size: 11px;
+}
+.hero-playback:hover {
+  background: rgba(31, 31, 31, 0.65);
+}
+.hero {
+  border-radius: 0 0 34px 34px;
+}
+.discipline-bar {
+  border-radius: 0 0 28px 28px;
+}
+.button,
+.nav-quote {
+  border-radius: 12px;
+}
+.service-composition a,
+.about-visual .photo,
+.service-detail-photo .photo,
+.catalog-item > .photo {
+  border-radius: 24px;
+}
+.featured-grid > a:first-child .photo {
+  border-radius: 24px;
+}
+.featured-grid > a:last-child .photo {
+  border-radius: 110px 24px 24px 24px;
+}
+.material-study {
+  margin-inline: 18px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.approach,
+.about-statement {
+  margin-inline: 18px;
+  border-radius: 32px;
+}
+.service-dark {
+  margin-inline: 18px;
+  border-radius: 32px;
+}
+.gallery-image {
+  border-radius: 24px;
+}
+.gallery-item:nth-child(3n) .gallery-image {
+  border-radius: 85px 24px 24px 24px;
+}
+.form-panel {
+  border-radius: 26px;
+  background: rgba(232, 228, 218, 0.68);
+  border: 1px solid #fff;
+  box-shadow:
+    0 12px 40px #1f1f1f06,
+    inset 0 1px 0 #fff;
+  backdrop-filter: blur(18px);
+}
+.contact-information > .photo {
+  border-radius: 24px 85px 24px 24px;
+}
+.gallery-open {
+  background: rgba(245, 244, 241, 0.68);
+  border: 1px solid #ffffffa0;
+  backdrop-filter: blur(16px);
+}
+.image-status {
+  border: 1px solid #ffffff30;
+  border-radius: 9px;
+  backdrop-filter: blur(16px);
+}
+footer {
+  border-radius: 32px 32px 0 0;
+}
+@media (max-width: 850px) {
+  .navbar nav {
+    background: rgba(31, 31, 31, 0.95);
+    backdrop-filter: blur(24px);
+    border-radius: 0 0 24px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    border-radius: 0 0 24px 24px;
+  }
+  .hero-actions {
+    gap: 12px;
+  }
+  .hero-actions .text-link {
+    padding: 14px 13px;
+  }
+  .hero-playback {
+    right: 20px;
+    bottom: 80px;
+  }
+  .material-study,
+  .approach,
+  .about-statement,
+  .service-dark {
+    margin-inline: 10px;
+    border-radius: 24px;
+  }
+  .service-composition a,
+  .service-detail-photo .photo,
+  .catalog-item > .photo,
+  .about-visual .photo {
+    border-radius: 18px;
+  }
+  .featured-grid > a:first-child .photo {
+    border-radius: 18px;
+  }
+  .featured-grid > a:last-child .photo {
+    border-radius: 85px 18px 18px 18px;
+  }
+  .gallery-image {
+    border-radius: 20px;
+  }
+  .gallery-item:nth-child(3n) .gallery-image {
+    border-radius: 65px 20px 20px 20px;
+  }
+  .study-copy {
+    padding-inline: 20px;
+  }
+  .form-panel {
+    border-radius: 22px;
+  }
+  footer {
+    border-radius: 24px 24px 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+}

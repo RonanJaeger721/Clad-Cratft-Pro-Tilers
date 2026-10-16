@@ -1,21 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Button, Photo, Arrow, MaterialStudy } from "@/components/site";
+import {
+  Button,
+  Photo,
+  Arrow,
+  MaterialStudy,
+  HeroBackground,
+} from "@/components/site";
 import { prices, whatsapp } from "@/lib/data";
 export const metadata = { alternates: { canonical: "/" } };
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-image" data-parallax>
-          <Image
-            src="/images/fireplace-angle.webp"
-            alt="Authentic stone-clad fireplace and tiled patio by Clad & Craft Pro Tilers"
-            fill
-            priority
-            sizes="100vw"
-          />
-        </div>
+        <HeroBackground />
         <div className="hero-shade" />
         <div className="hero-content wrap">
           <p className="eyebrow">CRAFTED SURFACES. CONSIDERED SPACES.</p>
@@ -43,11 +40,6 @@ export default function Home() {
           <span>
             Discover the craft <span aria-hidden="true">↓</span>
           </span>
-        </div>
-        <div className="hero-project">
-          01 / OUTDOOR LIVING
-          <br />
-          <span>Stone-clad fireplace & patio</span>
         </div>
       </section>
       <div className="discipline-bar">
