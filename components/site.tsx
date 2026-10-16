@@ -141,13 +141,22 @@ export function Navbar() {
     setHidden(false);
   }, [path]);
   useEffect(() => {
-    let last = window.scrollY;
+    let last = Math.max(0, window.scrollY);
     const scroll = () => {
-      const y = window.scrollY;
-      setHidden(y > 120 && y > last + 3);
+      // Clamp elastic overscroll and preserve the current state when stationary.
+      // Slow scrolling can move only one pixel per event, so do not reset the
+      // hidden state merely because a downward event is smaller than a threshold.
+      const max = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight,
+      );
+      const y = Math.max(0, Math.min(window.scrollY, max));
+      if (y <= 96 || y < last) setHidden(false);
+      else if (y > last) setHidden(true);
       setSolid(y > 40);
       last = y;
     };
+    scroll();
     window.addEventListener("scroll", scroll, { passive: true });
     return () => window.removeEventListener("scroll", scroll);
   }, []);
