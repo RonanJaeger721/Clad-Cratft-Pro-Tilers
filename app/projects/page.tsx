@@ -1,3 +1,39 @@
-import {Gallery} from '@/components/site';
-export const metadata={title:'Our Projects | Tiling & Cladding Portfolio',description:'Explore real Clad & Craft project photography: stone-clad fireplace and patio, marble-effect hallway finishes, tiled entrances and installation progress.',alternates:{canonical:'/projects'}};
-export default function Projects(){return <><section className="page-intro wrap"><p className="eyebrow">THE WORK / OUR PROJECTS</p><div className="page-heading"><h1>Craft, seen<br/><em>in the real world.</em></h1><p>Explore the texture, alignment and finishing details of our work. Real photographs, from finished tiling details to the fitting process.</p></div></section><section className="portfolio wrap"><Gallery/></section><div className="portfolio-note wrap"><span>AN HONEST LOOK AT THE WORK</span><p>Photographs are grouped by the installation shown. Surrounding building works may still be ongoing; fitting-progress photographs are labelled separately.</p></div></>}
+import { Gallery } from "@/components/site";
+export const metadata = {
+  title: "Our Projects | Tiling & Cladding Portfolio",
+  description:
+    "Explore real Clad & Craft project photography: stone-clad fireplace and patio, marble-effect hallway finishes, tiled entrances and installation progress.",
+  alternates: { canonical: "/projects" },
+};
+export default function Projects() {
+  return (
+    <>
+      <section className="page-intro wrap">
+        <p className="eyebrow">THE WORK / OUR PROJECTS</p>
+        <div className="page-heading">
+          <h1>
+            Craft, seen
+            <br />
+            <em>in the real world.</em>
+          </h1>
+          <p>
+            Explore the texture, alignment and finishing details of our work.
+            Real photographs, from finished tiling details to the fitting
+            process.
+          </p>
+        </div>
+      </section>
+      <section className="portfolio wrap">
+        <Gallery />
+      </section>
+      <div className="portfolio-note wrap">
+        <span>AN HONEST LOOK AT THE WORK</span>
+        <p>
+          Photographs are grouped by the installation shown. Surrounding
+          building works may still be ongoing; fitting-progress photographs are
+          labelled separately.
+        </p>
+      </div>
+    </>
+  );
+}

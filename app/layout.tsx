@@ -1,6 +1,60 @@
-import type {Metadata} from 'next';
-import {Navbar,Footer,Motion} from '@/components/site';
-import {business,siteUrl} from '@/lib/data';
-import './globals.css';
-export const metadata:Metadata={metadataBase:new URL(siteUrl),title:{default:'Clad & Craft Pro Tilers | Premium Tiling & Stone Cladding Zimbabwe',template:'%s | Clad & Craft Pro Tilers'},description:'Premium wall cladding, stone cladding, ceramic and porcelain tile installation in Zimbabwe. Explore authentic workmanship and request a quotation.',openGraph:{type:'website',locale:'en_ZW',siteName:business,images:[{url:'/images/fireplace-angle.webp',width:818,height:1080,alt:'Clad & Craft stone-clad fireplace'}]},twitter:{card:'summary_large_image'},icons:{icon:'/icon.svg'}};
-export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body><a href="#main" className="skip-link">Skip to content</a><Navbar/><Motion/><main id="main">{children}</main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'HomeAndConstructionBusiness',name:business,url:siteUrl,telephone:['+263772580824','+263715617140'],areaServed:{'@type':'Country',name:'Zimbabwe'},description:'Premium wall cladding, stone cladding and modern tiling finishes.',image:`${siteUrl}/images/fireplace-angle.webp`})}}/></body></html>}
+import type { Metadata } from "next";
+import { Navbar, Footer, Motion } from "@/components/site";
+import { business, siteUrl } from "@/lib/data";
+import "./globals.css";
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default:
+      "Clad & Craft Pro Tilers | Premium Tiling & Stone Cladding Zimbabwe",
+    template: "%s | Clad & Craft Pro Tilers",
+  },
+  description:
+    "Premium wall cladding, stone cladding, ceramic and porcelain tile installation in Zimbabwe. Explore authentic workmanship and request a quotation.",
+  openGraph: {
+    type: "website",
+    locale: "en_ZW",
+    siteName: business,
+    images: [
+      {
+        url: "/images/fireplace-angle.webp",
+        width: 818,
+        height: 1080,
+        alt: "Clad & Craft stone-clad fireplace",
+      },
+    ],
+  },
+  twitter: { card: "summary_large_image" },
+  icons: { icon: "/icon.svg" },
+};
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <Navbar />
+        <Motion />
+        <main id="main">{children}</main>
+        <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HomeAndConstructionBusiness",
+              name: business,
+              url: siteUrl,
+              telephone: ["+263772580824", "+263715617140"],
+              areaServed: { "@type": "Country", name: "Zimbabwe" },
+              description:
+                "Premium wall cladding, stone cladding and modern tiling finishes.",
+              image: `${siteUrl}/images/fireplace-angle.webp`,
+            }),
+          }}
+        />
+      </body>
+    </html>
+  );
+}
